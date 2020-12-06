@@ -1,0 +1,7 @@
+apiVersion: plants.siddharth.com/v1alpha1
+kind: Fruit
+metadata:
+  name: fruit-sample
+spec:
+  # Add fields here
+  foo: bar

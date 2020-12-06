@@ -1,3 +1,7 @@
 domain: siddharth.com
 repo: siddharth.com/plant-factory
+resources:
+- group: plants
+  kind: Fruit
+  version: v1alpha1
 version: "2"
