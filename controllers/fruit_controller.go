@@ -59,12 +59,6 @@ func (r *FruitReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 		return ctrl.Result{}, err
 	}
 
-	fruit.Status.Created = true
-	if err := r.Status().Update(ctx, &fruit); err != nil {
-		log.Error(err, "Failed to update fruit status")
-		return ctrl.Result{}, err
-	}
-
 	return ctrl.Result{}, nil
 }
 
