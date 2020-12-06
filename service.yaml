@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: fruit
+  name: fruit-sample
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    plantsv1aplha1/fruit: fruit-sample
+  type: LoadBalancer

@@ -2,6 +2,8 @@ apiVersion: plants.siddharth.com/v1alpha1
 kind: Fruit
 metadata:
   name: fruit-sample
+  namespace: fruit
 spec:
-  # Add fields here
-  foo: bar
+  name: fruit-sample
+  type: guava
+  amount: 5

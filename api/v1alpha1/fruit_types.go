@@ -28,9 +28,13 @@ type FruitSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of Fruit. Edit Fruit_types.go to remove/update
+	// Name is the name of fruit
 	Name string `json:"name,omitempty"`
+
+	// Type is the species of fruit
 	Type string `json:"type,omitempty"`
+
+	// Amount is the number of fruit
 	Amount int32 `json:"amount,omitempty"`
 }
 
@@ -43,6 +47,7 @@ type FruitStatus struct {
 }
 
 // +kubebuilder:object:root=true
+// +kubebuilder:subresource:status
 
 // Fruit is the Schema for the fruits API
 type Fruit struct {
