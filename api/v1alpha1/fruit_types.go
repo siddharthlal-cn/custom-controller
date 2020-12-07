@@ -47,6 +47,7 @@ type FruitStatus struct {
 }
 
 // +kubebuilder:object:root=true
+// +kubebuilder:subresource:status
 
 // Fruit is the Schema for the fruits API
 type Fruit struct {

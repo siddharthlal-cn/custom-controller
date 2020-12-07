@@ -53,9 +53,23 @@ func (r *FruitReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 		return ctrl.Result{}, err
 	}
 
+	// checking the initial status created, if true subsequent steps will not take place
+	if fruit.Status.Created == true {
+		log.Info("The resource already existing in the environment")
+		return ctrl.Result{}, nil
+	}
+
+	// creating the deployment
 	desiredFruit := createDesiredFruitDeployment(fruit)
 	if err := r.Create(ctx, desiredFruit); err != nil {
 		log.Error(err, "Failed to create fruit deployment")
+		return ctrl.Result{}, err
+	}
+
+	// updaing the status to true once the deployment is created
+	fruit.Status.Created = true
+	if err := r.Status().Update(ctx, &fruit); err != nil {
+		log.Error(err, "Failed to update fruit status")
 		return ctrl.Result{}, err
 	}
 
